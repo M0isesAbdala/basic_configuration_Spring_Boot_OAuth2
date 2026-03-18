@@ -2,7 +2,7 @@
 
 ###
 
-<b align="left">Command to run: docker compose up</b>
+<strong style="font-size: 18px;" align="left">Command to run: docker compose up</strong>
 
 ###
 
