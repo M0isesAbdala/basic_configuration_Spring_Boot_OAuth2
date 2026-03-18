@@ -1,0 +1,37 @@
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.springframework.security: TRACE
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.oauth2: TRACE
+    org.springframework.security.oauth2.client: TRACE
+    org.springframework.security.oauth2.core.endpoint: TRACE
+    org.springframework.security.oauth2.client.endpoint: TRACE
+server:
+  port: ${RESOURCE_PORT}
+  servlet:
+    session:
+      cookie:
+        name: RESOURCESESSION
+spring:
+  application:
+    name: "resource"
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "${AUTHENTICATION_URL}:${AUTHENTICATION_PORT}"
+  sql:
+    init:
+      mode: always
+  datasource:
+    url: jdbc:mysql://${MYSQL_URL}:${MYSQL_PORT}/${MYSQL_DATABASE}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: MYSQL
